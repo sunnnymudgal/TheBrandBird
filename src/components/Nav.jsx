@@ -35,9 +35,9 @@ function Nav() {
 
         <div
           onClick={() => setShowContact(true)}
-          className="relative text-xl font-light h-12 w-44 text-white font-[monoserrat] bg-[#4ac8a6] rounded-3xl group overflow-hidden cursor-pointer max-md:hidden"
+          className="relative text-xl font-light h-12 w-44 text-white font-[monoserrat] bg-[#4a96c8] rounded-3xl group overflow-hidden cursor-pointer max-md:hidden"
         >
-          <div className="absolute top-1 left-0 text-2xl bg-[#228576] h-10 w-10 flex items-center justify-end px-2 rounded-full transition-all duration-700 group-hover:w-full group-hover:h-full group-hover:top-0">
+          <div className="absolute top-1 left-0 text-2xl bg-[#2a5570] h-10 w-10 flex items-center justify-end px-2 rounded-full transition-all duration-700 group-hover:w-full group-hover:h-full group-hover:top-0">
             <IoMdArrowForward />
           </div>
           <div className="absolute top-1/2 right-4 -translate-y-1/2 transition-all duration-700 group-hover:-translate-x-5">

@@ -21,18 +21,19 @@ function Main() {
         <div className="w-full max-w-5xl flex items-center justify-center flex-col gap-4 text-center py-20">
           <div className="font-light flex flex-col items-center justify-center">
             <div className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl">
-              Beautiful Experiences
+              Elegant Experiences,
             </div>
 
             <div className="flex items-center gap-2 text-3xl sm:text-4xl md:text-6xl lg:text-7xl">
               <div className="w-10 sm:w-12 md:w-16 h-1 bg-white rounded-sm"></div>
-              Built to Perform
+              Built for Impact
             </div>
           </div>
 
           <div className="font-light text-base sm:text-md md:text-lg lg:text-xl max-w-3xl">
-            We help businesses build a professional digital identity — from
-            logos, motion designs, and websites to company profile and beyond.
+            We craft powerful digital identities for businesses —from logo
+            design and motion graphics to websites, company profiles, and
+            beyond.
           </div>
 
           <div className="group flex cursor-pointer text-lg items-center justify-center gap-2 w-fit text-white  px-6 py-3 mt-1 rounded-xl font-[josefin] font-light overflow-hidden">

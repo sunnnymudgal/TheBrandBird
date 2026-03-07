@@ -56,54 +56,40 @@ function AboutPage() {
         </div>
 
         <div className="w-full md:w-9/12 text-3xl sm:text-4xl md:text-5xl lg:text-6xl my-7 md:my-14 leading-tight">
-          <span className="bg-linear-to-r from-emerald-500 via-green-500 to-lime-500 bg-clip-text text-transparent">
-            We are
-          </span>
 
-          <span className="bg-linear-to-r from-emerald-900 via-green-600 to-lime-900 bg-clip-text text-transparent">
-            TheBrandBird
-          </span>
+  <span className="bg-linear-to-r from-red-500 via-rose-500 to-orange-400 bg-clip-text text-transparent">
+    We are
+  </span>
 
-          <span className="bg-linear-to-r from-emerald-500 via-green-500 to-lime-500 bg-clip-text text-transparent">
-            , an independent
-          </span>
+  <span className="bg-linear-to-r from-red-900 via-red-600 to-orange-700 bg-clip-text text-transparent">
+    {" "}TheBrandBird
+  </span>
 
-          <span className="bg-linear-to-r from-emerald-900 via-green-600 to-lime-900 bg-clip-text text-transparent">
-            {" "}
-            design studio{" "}
-          </span>
+  <span className="bg-linear-to-r from-red-500 via-rose-500 to-orange-400 bg-clip-text text-transparent">
+    {" "}— an independent
+  </span>
 
-          <span className="bg-linear-to-r from-emerald-500 via-green-500 to-lime-500 bg-clip-text text-transparent">
-            that leverages
-          </span>
+  <span className="bg-linear-to-r from-red-900 via-red-600 to-orange-700 bg-clip-text text-transparent">
+    {" "}design studio
+  </span>
 
-          <span className="bg-linear-to-r from-emerald-900 via-green-600 to-lime-900 bg-clip-text text-transparent">
-            {" "}
-            fresh ideas{" "}
-          </span>
+  <span className="bg-linear-to-r from-red-500 via-rose-500 to-orange-400 bg-clip-text text-transparent">
+    {" "}crafting bold brands
+  </span>
 
-          <span className="bg-linear-to-r from-emerald-500 via-green-500 to-lime-500 bg-clip-text text-transparent">
-            and
-          </span>
+  <span className="bg-linear-to-r from-red-900 via-red-600 to-orange-700 bg-clip-text text-transparent">
+    {" "}through creativity
+  </span>
 
-          <span className="bg-linear-to-r from-emerald-900 via-green-600 to-lime-900 bg-clip-text text-transparent">
-            {" "}
-            innovation{" "}
-          </span>
+  <span className="bg-linear-to-r from-red-500 via-rose-500 to-orange-400 bg-clip-text text-transparent">
+    {" "}, strategy
+  </span>
 
-          <span className="bg-linear-to-r from-emerald-500 via-green-500 to-lime-500 bg-clip-text text-transparent">
-            to build
-          </span>
+  <span className="bg-linear-to-r from-red-900 via-red-600 to-orange-700 bg-clip-text text-transparent">
+    {" "}and innovation.
+  </span>
 
-          <span className="bg-linear-to-r from-emerald-900 via-green-600 to-lime-900 bg-clip-text text-transparent">
-            {" "}
-            standout brands{" "}
-          </span>
-
-          <span className="bg-linear-to-r from-emerald-500 via-green-500 to-lime-500 bg-clip-text text-transparent">
-            for our clients.
-          </span>
-        </div>
+</div>
       </motion.div>
 
       <div className="flex flex-col lg:flex-row gap-6 px-5 sm:px-10 mt-16 md:mt-32">
@@ -125,7 +111,7 @@ function AboutPage() {
             <motion.div
               transition={{ type: "spring", stiffness: 300 }}
               className="flex items-center gap-3 w-fit px-6 py-3 rounded-xl
-            bg-linear-to-r from-emerald-700 via-green-800 to-lime-700
+            bg-linear-to-r from-[#67c0ba] via-[#95d8c5] to-[#356575]
             text-white font-semibold shadow-lg hover:scale-95
             transition-all duration-300 cursor-pointer mt-6"
             >
@@ -152,7 +138,6 @@ function AboutPage() {
         />
       </div>
 
-      {/* EXTRA CARDS */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10 px-5 sm:px-10">
         <AboutCard
           head="OUR VALUES"
@@ -165,7 +150,6 @@ function AboutPage() {
         />
       </div>
 
-      {/* SERVICES */}
       <div className="my-24 md:my-36">
         <div className="px-5 sm:px-10 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-[majormono] font-bold">
           All the Services You Need <br />
