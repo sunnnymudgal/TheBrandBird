@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import Nav from "./Nav";
 import { CiLocationArrow1 } from "react-icons/ci";
 import Foooter from "./Foooter";
 import { motion } from "framer-motion";
+import Contact from "./Contact";
 
 function WorkPage() {
+  const [showContact, setShowContact] = useState(false);
   return (
     <div className="relative min-h-screen w-full ">
+      {showContact && <Contact onClose={() => setShowContact(false)} />}
       <div className="sticky top-0 z-30">
         <Nav />
       </div>
@@ -45,6 +48,7 @@ function WorkPage() {
                                 gap-2 w-fit 
                                 py-3 mt-8 pr-2 rounded-xl font-light 
                                 overflow-hidden mx-auto lg:mx-0"
+          onClick={() => setShowContact(true)}
         >
           <div className="relative h-7 overflow-hidden">
             <div className="flex flex-col transition-transform duration-500 ease-in-out group-hover:-translate-y-8">

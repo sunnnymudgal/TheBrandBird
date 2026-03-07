@@ -6,9 +6,13 @@ import Foooter from "./Foooter";
 import Approach from "./Approach";
 import { CiLocationArrow1 } from "react-icons/ci";
 
+import Contact from "./Contact";
+
 function Card() {
   const { scrollY } = useScroll();
   const [initialWidth, setInitialWidth] = useState("40rem");
+  const [showContact, setShowContact] = useState(false);
+
 
   useEffect(() => {
     const checkScreen = () => {
@@ -29,6 +33,8 @@ function Card() {
 
   return (
     <div className="relative bg-[#4290b2]">
+      {showContact && <Contact onClose={() => setShowContact(false)} />}
+
       <div className="z-50 sticky top-0">
         <Nav />
       </div>
@@ -65,7 +71,7 @@ function Card() {
                     believe great ideas grow through meaningful connections.
                   </p>
 
-                  <div className="text-gray-600 font-[josefin] flex items-center gap-2 cursor-pointer text-lg sm:text-xl justify-center lg:justify-start hover:text-emerald-600 transition">
+                  <div  onClick={() => setShowContact(true)} className="text-gray-600 font-[josefin] flex items-center gap-2 cursor-pointer text-lg sm:text-xl justify-center lg:justify-start hover:text-emerald-600 transition">
                     <span>Let's get connected.</span>
 
                     <CiLocationArrow1 />
