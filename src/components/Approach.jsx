@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 function ApproachCard({ head, foot }) {
   return (
-    <div className="flex flex-col justify-between p-6 rounded-2xl bg-[#E8E8E8] hover:bg-[#dcdcdc] transition duration-300 min-h-55">
+    <div className="flex hover:rotate-6 cursor-pointer flex-col justify-between p-6 rounded-2xl bg-[#E8E8E8] hover:bg-[#dcdcdc] transition duration-300 min-h-55">
       
       <div className="text-sm font-light tracking-wide text-gray-600">
         {head}

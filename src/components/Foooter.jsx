@@ -19,15 +19,15 @@ function Foooter() {
       <footer className="w-full mt-32">
         <div
           className="relative mx-6 md:mx-20 mb-12 
-        bg-linear-to-br from-emerald-50 via-white to-emerald-100
-        border border-emerald-100
+        bg-linear-to-br from-blue-50 via-white to-blue-100
+        border border-blue-100
         rounded-3xl p-10 md:p-16 overflow-hidden"
         >
           <div className="pointer-events-none absolute inset-0 bg-linear-to-tr from-transparent via-white/40 to-transparent opacity-40"></div>
 
           <div className="relative flex flex-col lg:flex-row justify-between gap-12">
             <div className="flex flex-col gap-5 max-w-xl">
-              <h2 className="text-4xl md:text-5xl font-semibold bg-linear-to-r from-emerald-600 to-green-400 bg-clip-text text-transparent">
+              <h2 className="text-4xl md:text-5xl font-semibold bg-linear-to-r from-[#116ec0] to-[#b0b0d6] bg-clip-text text-transparent">
                 Ready to Build Your Brand?
               </h2>
 
@@ -58,9 +58,9 @@ function Foooter() {
               </div>
 
               <div className="flex gap-6 text-2xl text-gray-700">
-                <FaInstagram className="hover:text-emerald-500 cursor-pointer transition duration-300" />
+                <FaInstagram className="hover:text-blue-500 cursor-pointer transition duration-300" />
 
-                <FaXTwitter className="hover:text-emerald-500 cursor-pointer transition duration-300" />
+                <FaXTwitter className="hover:text-blue-500 cursor-pointer transition duration-300" />
               </div>
 
               <p className="text-gray-500 text-sm max-w-sm">
