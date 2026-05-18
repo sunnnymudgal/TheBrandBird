@@ -4,6 +4,7 @@ import Foooter from "./Foooter";
 import { FaPhone } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import ProcessSection from "./ProcessSection";
 
 function AboutCard({ head, foot }) {
   return (
@@ -55,7 +56,7 @@ function AboutPage() {
           ABOUT
         </div>
 
-        <div className="w-full md:w-9/12 text-3xl sm:text-4xl md:text-5xl lg:text-6xl my-7 md:my-14 leading-tight">
+        <div className="w-full md:w-9/12 text-3xl sm:text-4xl md:text-5xl lg:text-6xl my-7 md:my-14 leading-tight font-extrabold">
 
   <span className="bg-linear-to-r from-red-500 via-rose-500 to-orange-400 bg-clip-text text-transparent">
     We are
@@ -172,6 +173,7 @@ function AboutPage() {
           </div>
         </div>
       </div>
+      <ProcessSection/>
 
       <Foooter />
     </div>

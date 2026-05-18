@@ -4,6 +4,7 @@ import { CiLocationArrow1 } from "react-icons/ci";
 import Foooter from "./Foooter";
 import { motion } from "framer-motion";
 import Contact from "./Contact";
+import ProjectCard from "./ProjectCard";
 
 function WorkPage() {
   const [showContact, setShowContact] = useState(false);
@@ -22,24 +23,97 @@ function WorkPage() {
 
           ease: [0.22, 1, 0.36, 1],
         }}
-        className="px-5 sm:px-7 md:px-12 lg:px-20"
+        className="px-5 sm:px-7 md:px-12 lg:px-20 mb-28"
       >
-        <div className="font-[josefin] mt-16 sm:mt-20 text-sm sm:text-base tracking-widest">
-          WORK
-        </div>
+       <div className="mt-20 sm:mt-28">
+  {/* SMALL LABEL */}
+  <div
+    className="
+      uppercase
 
-        <div className="mt-6 text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-wide font-extrabold leading-tight">
-          <div>The Magic We've Made</div>
-          <div className="mt-2">Let our portfolio inspire you</div>
-        </div>
+      tracking-[8px]
 
-        <div
-          className="mt-6 text-base sm:text-lg md:text-xl lg:text-2xl 
-                                w-full md:w-4/5 lg:w-2/3 leading-relaxed"
-        >
-          A look at the captivating designs, seamless functionality, and brand
-          stories brought to life through our digital magic.
-        </div>
+      text-sm
+      sm:text-base
+
+      font-medium
+
+      text-[#111827]/50
+    "
+  >
+    Selected Work
+  </div>
+
+  {/* HEADING */}
+  <div
+    className="
+      mt-8
+
+      text-4xl
+      sm:text-5xl
+      md:text-6xl
+      lg:text-7xl
+
+      font-black
+
+      leading-[0.95]
+
+      tracking-tight
+
+      text-[#111827]
+    "
+  >
+    <div>
+      The Magic
+      <span className="text-[#6f7de0]"> We&apos;ve </span>
+      Made
+    </div>
+
+    <div className="mt-3 text-[#111827]/80">
+      Let our portfolio inspire you.
+    </div>
+  </div>
+
+  {/* DESCRIPTION */}
+  <div
+    className="
+      mt-8
+
+      text-lg
+      sm:text-xl
+      md:text-2xl
+
+      text-[#374151]
+
+      w-full
+      md:w-4/5
+      lg:w-2/3
+
+      leading-relaxed
+    "
+  >
+    A curated collection of immersive experiences,
+    premium interfaces, and modern digital stories
+    crafted to elevate brands and create meaningful
+    impact.
+  </div>
+
+  {/* DECORATIVE LINE */}
+  <div
+    className="
+      mt-10
+
+      w-32
+      h-[4px]
+
+      rounded-full
+
+      bg-gradient-to-r
+      from-[#8f9ad6]
+      to-[#6f7de0]
+    "
+  />
+</div>
 
         <div
           className="group flex cursor-pointer 
@@ -62,42 +136,164 @@ function WorkPage() {
           </div>
         </div>
       </motion.div>
+      <ProjectCard/>
       <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: "easeOut", delay: 1 }}
-        viewport={{ once: false }}
+      
       >
-        <div className="flex flex-col mt-[10vh] lg:flex-row gap-12 items-center justify-center w-full px-6 sm:px-10 md:px-16 lg:px-24 py-24">
-          <div
-            className="relative 
-  h-[280px] w-[240px] 
-  sm:h-[360px] sm:w-[300px] 
-  md:h-[420px] md:w-[360px] 
-  lg:h-[500px] lg:w-[420px] 
-  overflow-hidden rounded-xl"
-          >
-            <div className='h-full w-full bg-[url("/images/penguin.jpg")] bg-cover bg-center'></div>
+        <div
+  className="
+    flex
+    flex-col
+    mt-[10vh]
+    lg:flex-row
 
-            <div className="absolute inset-0 bg-gradient-to-b from-white via-transparent to-white"></div>
-            <div className="absolute inset-0 bg-gradient-to-r from-white via-transparent to-white"></div>
-          </div>
+    gap-16
 
-          <div className="max-w-xl flex flex-col gap-5 text-center lg:text-left">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold font-[monoserrat] leading-tight">
-              Not All Explorers Climb Mountains.
-            </h2>
+    items-center
+    justify-center
 
-            <p className="text-lg sm:text-xl text-gray-600 font-[josefin]">
-              Some build brands.
-            </p>
+    w-full
 
-            <p className="text-gray-600 font-[josefin] text-base sm:text-lg leading-relaxed">
-              TheBrandBird exists for the dreamers, the builders, and the ones
-              brave enough to take the first step.
-            </p>
-          </div>
-        </div>
+    px-6
+    sm:px-10
+    md:px-16
+    lg:px-24
+
+    py-24
+
+    bg-[#ffffff]
+  "
+>
+  {/* IMAGE */}
+  <motion.div
+    whileHover={{ scale: 1.02 }}
+    transition={{ duration: 0.4 }}
+    className="
+      relative
+
+      h-[300px]
+      w-[250px]
+
+      sm:h-[380px]
+      sm:w-[320px]
+
+      md:h-[460px]
+      md:w-[380px]
+
+      lg:h-[540px]
+      lg:w-[440px]
+
+      overflow-hidden
+
+      rounded-[32px]
+
+      border border-white/20
+
+      shadow-[0_20px_80px_rgba(0,0,0,0.16)]
+    "
+  >
+    <div
+      className='
+        h-full
+        w-full
+
+        bg-[url("/images/penguin.jpg")]
+        bg-cover
+        bg-center
+      '
+    />
+
+    {/* PREMIUM OVERLAY */}
+    <div
+      className="
+        absolute
+        inset-0
+
+        bg-gradient-to-t
+        from-[#111827]/20
+        via-transparent
+        to-white/10
+      "
+    />
+
+    {/* BLUR LIGHT */}
+    <div
+      className="
+        absolute
+        top-[-80px]
+        right-[-80px]
+
+        w-[220px]
+        h-[220px]
+
+        rounded-full
+
+        bg-white/20
+
+        blur-[100px]
+      "
+    />
+  </motion.div>
+
+  {/* TEXT */}
+  <div className="max-w-2xl flex flex-col gap-7 text-center lg:text-left">
+    <p className="uppercase tracking-[6px] text-sm text-[#111827]/50">
+      FOR THE DREAMERS
+    </p>
+
+    <h2
+      className="
+        text-4xl
+        sm:text-5xl
+        lg:text-7xl
+
+        font-black
+
+        leading-[0.95]
+
+        text-[#111827]
+      "
+    >
+      Not All
+      <br />
+      Explorers
+      <br />
+      Climb Mountains.
+    </h2>
+
+    <p
+      className="
+        text-2xl
+
+        font-medium
+
+        text-[#6f7de0]
+      "
+    >
+      Some build brands.
+    </p>
+
+    <p
+      className="
+        text-[#374151]
+
+        text-base
+        sm:text-lg
+
+        leading-relaxed
+
+        max-w-xl
+      "
+    >
+      TheBrandBird exists for the dreamers, the builders,
+      and the ones brave enough to take the first step.
+      We create meaningful digital experiences that inspire
+      connection, creativity, and lasting impact.
+    </p>
+
+   
+  </div>
+</div>
       </motion.div>
       <div className="mt-16">
         <Foooter />

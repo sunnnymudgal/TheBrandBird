@@ -7,6 +7,9 @@ import Approach from "./Approach";
 import { CiLocationArrow1 } from "react-icons/ci";
 
 import Contact from "./Contact";
+import StatsSection from "./StatsSection";
+// import ProcessSection from "./ProcessSection";
+import WhyBrandsSection from "./WhyBrandsSection";
 
 function Card() {
   const { scrollY } = useScroll();
@@ -48,6 +51,7 @@ function Card() {
           className="h-fit bg-[#ffffff] rounded-xl relative"
         >
           <Approach />
+          <WhyBrandsSection/>
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -55,7 +59,7 @@ function Card() {
             viewport={{ once: false }}
           >
             <div className="w-full min-h-screen bg-white flex items-center">
-              <div className="flex flex-col lg:flex-row gap-12 items-center justify-center w-full px-6 sm:px-10 md:px-16 lg:px-24 py-24">
+              <div className="flex flex-col lg:flex-row gap-12 items-center justify-center w-full px-6 sm:px-10 md:px-16">
                 <div className="relative h-[300px] w-[260px] sm:h-[380px] sm:w-[320px] md:h-[450px] md:w-[380px] lg:h-[500px] lg:w-[420px] overflow-hidden rounded-xl">
                   <div className='h-full w-full bg-[url("/images/monkey.jpg")] bg-cover bg-center'></div>
                 </div>
@@ -79,6 +83,8 @@ function Card() {
                 </div>
               </div>
             </div>
+
+            <StatsSection/>
           </motion.div>
           <Foooter />
         </motion.div>

@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 function Main() {
   return (
     <div className="relative min-h-[90vh] w-full overflow-hidden font-[roboto]">
-      <div className="absolute inset-0 bg-[url('/images/heroBg.jpg')] bg-cover bg-center blur-2xl"></div>
+      <div className="absolute inset-0 bg-[url('/images/download.jpg')] bg-cover bg-center blur-2xl"></div>
 
       <motion.div
         initial={{ opacity: 0, y: 20 }}

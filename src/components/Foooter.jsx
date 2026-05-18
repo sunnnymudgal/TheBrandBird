@@ -7,72 +7,159 @@ import Contact from "./Contact";
 
 function Foooter() {
   const [showContact, setShowContact] = useState(false);
+
   return (
     <motion.div
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
-      viewport={{ once: false }}
+     
     >
       {showContact && <Contact onClose={() => setShowContact(false)} />}
 
-      <footer className="w-full mt-32">
+      <footer className="w-full px-4 md:px-8 pb-10 bg-[#ffffff]">
         <div
-          className="relative mx-6 md:mx-20 mb-12 
-        bg-linear-to-br from-blue-50 via-white to-blue-100
-        border border-blue-100
-        rounded-3xl p-10 md:p-16 overflow-hidden"
+          className="
+          relative
+          max-w-7xl
+          mx-auto
+          overflow-hidden
+          rounded-[40px]
+          border border-white/20
+          bg-gradient-to-br from-[#b8c2ef] via-[#c6d1ff] to-[#dfe7ff]
+          shadow-[0_20px_80px_rgba(0,0,0,0.15)]
+          backdrop-blur-2xl
+          p-8 md:p-16
+        "
         >
-          <div className="pointer-events-none absolute inset-0 bg-linear-to-tr from-transparent via-white/40 to-transparent opacity-40"></div>
+          {/* BLUR CIRCLES */}
+          <div className="absolute top-[-120px] right-[-120px] w-[300px] h-[300px] rounded-full bg-white/20 blur-[100px]" />
 
-          <div className="relative flex flex-col lg:flex-row justify-between gap-12">
-            <div className="flex flex-col gap-5 max-w-xl">
-              <h2 className="text-4xl md:text-5xl font-semibold bg-linear-to-r from-[#116ec0] to-[#b0b0d6] bg-clip-text text-transparent">
-                Ready to Build Your Brand?
+          <div className="absolute bottom-[-120px] left-[-120px] w-[300px] h-[300px] rounded-full bg-[#8f9ad6]/30 blur-[120px]" />
+
+          {/* NOISE OVERLAY */}
+          <div className="absolute inset-0 opacity-[0.03] mix-blend-overlay bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
+
+          {/* CONTENT */}
+          <div className="relative flex flex-col lg:flex-row justify-between gap-16">
+            {/* LEFT */}
+            <div className="max-w-2xl">
+              <p className="uppercase tracking-[6px] text-sm text-[#111827]/50 mb-5">
+                LET&apos;S BUILD SOMETHING
+              </p>
+
+              <h2 className="text-5xl md:text-7xl font-black leading-[0.95] text-[#111827]">
+                Ready To
+                <br />
+                Elevate Your
+                <br />
+                Brand?
               </h2>
 
-              <p className="text-gray-600 text-lg md:text-xl">
-                Let's create something amazing together.
+              <p className="mt-8 text-lg md:text-xl leading-relaxed text-[#374151] max-w-xl">
+                Creating premium digital experiences with modern design,
+                immersive visuals, and meaningful interactions.
               </p>
 
-              <div
+              {/* BUTTON */}
+              <motion.button
+                whileHover={{ scale: 1.04 }}
+                whileTap={{ scale: 0.97 }}
                 onClick={() => setShowContact(true)}
-                className="group flex cursor-pointer text-lg items-center justify-center gap-2 w-fit text-[#155015]  px-3 py-3 mt-1 rounded-xl font-[josefin] font-light overflow-hidden"
+                className="
+                  group
+                  mt-10
+                  flex
+                  items-center
+                  gap-3
+                  px-8
+                  py-5
+                  rounded-full
+                  bg-[#111827]
+                  text-white
+                  text-lg
+                  shadow-xl
+                  hover:shadow-[0_10px_50px_rgba(0,0,0,0.25)]
+                  transition-all
+                  duration-500
+                "
               >
-                <div className="relative h-8 overflow-hidden">
-                  <div className="flex flex-col transition-transform duration-500 ease-in-out group-hover:-translate-y-7">
-                    <span>Get In Touch</span>
-                    <span>Get In Touch</span>
-                  </div>
-                </div>
+                <span>Get In Touch</span>
 
-                <div className="transition-transform duration-500 group-hover:translate-x-1 text-2xl">
-                  <CiLocationArrow1 />
+                <div className="transition-transform duration-500 group-hover:translate-x-1 group-hover:-translate-y-1">
+                  <CiLocationArrow1 className="text-2xl" />
                 </div>
-              </div>
+              </motion.button>
             </div>
 
-            <div className="flex flex-col gap-6">
-              <div className="text-2xl md:text-3xl font-semibold text-gray-900">
-                THEBRANDBIRD
+            {/* RIGHT */}
+            <div className="flex flex-col justify-between gap-10">
+              <div>
+                <h1 className="text-3xl md:text-4xl font-black text-[#111827]">
+                  THEBRANDBIRD
+                </h1>
+
+                <p className="mt-4 max-w-sm text-[#374151] leading-relaxed">
+                  A creative portfolio focused on premium UI experiences,
+                  modern branding, and futuristic digital products.
+                </p>
               </div>
 
-              <div className="flex gap-6 text-2xl text-gray-700">
-                <FaInstagram className="hover:text-blue-500 cursor-pointer transition duration-300" />
+              {/* SOCIALS */}
+              <div className="flex items-center gap-5">
+                <motion.div
+                  whileHover={{ y: -4 }}
+                  className="
+                    w-14
+                    h-14
+                    rounded-full
+                    bg-white/30
+                    backdrop-blur-xl
+                    border border-white/20
+                    flex
+                    items-center
+                    justify-center
+                    text-2xl
+                    text-[#111827]
+                    cursor-pointer
+                    hover:bg-white/50
+                    transition-all
+                    duration-300
+                  "
+                >
+                  <FaInstagram />
+                </motion.div>
 
-                <FaXTwitter className="hover:text-blue-500 cursor-pointer transition duration-300" />
+                <motion.div
+                  whileHover={{ y: -4 }}
+                  className="
+                    w-14
+                    h-14
+                    rounded-full
+                    bg-white/30
+                    backdrop-blur-xl
+                    border border-white/20
+                    flex
+                    items-center
+                    justify-center
+                    text-2xl
+                    text-[#111827]
+                    cursor-pointer
+                    hover:bg-white/50
+                    transition-all
+                    duration-300
+                  "
+                >
+                  <FaXTwitter />
+                </motion.div>
               </div>
-
-              <p className="text-gray-500 text-sm max-w-sm">
-                A creative design studio building modern brands and digital
-                experiences.
-              </p>
             </div>
           </div>
 
-          <div className="relative border-t border-emerald-100 mt-12 pt-6 text-gray-500 text-sm flex flex-col md:flex-row justify-between gap-3">
-            <span>© 2026 TheBrandBird</span>
-            <span>जय भारत 🇮🇳</span>
+          {/* FOOTER BOTTOM */}
+          <div className="relative mt-16 pt-6 border-t border-white/20 flex flex-col md:flex-row justify-between gap-4 text-sm text-[#374151]">
+            <span>© 2026 THEBRANDBIRD</span>
+
+            <span className="tracking-[3px]">
+              DESIGNED WITH VISION • जय भारत 🇮🇳
+            </span>
           </div>
         </div>
       </footer>
