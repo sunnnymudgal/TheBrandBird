@@ -2,7 +2,6 @@ import React, { useRef, useState, useEffect } from "react";
 import { IoClose } from "react-icons/io5";
 import { motion, AnimatePresence } from "framer-motion";
 import { createPortal } from "react-dom";
-import { FaArrowRight } from "react-icons/fa6";
 import emailjs from "@emailjs/browser";
 
 function Contact({ onClose }) {
@@ -21,12 +20,17 @@ function Contact({ onClose }) {
         "service_qmzkd2k",
         "template_fm2zfth",
         form.current,
-        "YOUR_EMAILJS_PUBLIC_KEY"
+        "hGWfdKhqR2lQT2-Lm"
       )
       .then(() => {
         setSent(true);
         setLoading(false);
+
         e.target.reset();
+
+        setTimeout(() => {
+          setSent(false);
+        }, 3000);
       })
       .catch((error) => {
         console.log(error.text);
@@ -35,24 +39,22 @@ function Contact({ onClose }) {
   };
 
   useEffect(() => {
-    if (sent) {
-      const timer = setTimeout(() => {
-        setSent(false);
-      }, 3000);
+    document.body.style.overflow = "hidden";
 
-      return () => clearTimeout(timer);
-    }
-  }, [sent]);
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, []);
 
   return createPortal(
     <AnimatePresence>
       <motion.section
-        className="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm flex justify-end"
+        className="fixed inset-0 bg-[#0000003c] flex items-start justify-end z-50"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
       >
-        {/* OVERLAY */}
+        {/* BACKDROP */}
         <div onClick={onClose} className="absolute inset-0" />
 
         {/* PANEL */}
@@ -61,153 +63,115 @@ function Contact({ onClose }) {
           animate={{ x: 0 }}
           exit={{ x: "100%" }}
           transition={{ duration: 0.5, ease: "easeInOut" }}
-          className="relative z-50 w-full md:max-w-2xl h-full bg-white overflow-y-auto md:rounded-l-[40px] shadow-2xl"
+          className="md:rounded-l-4xl relative w-full max-w-xl h-screen bg-white shadow-xl p-8 md:p-12 space-y-2 overflow-y-auto"
         >
           {/* CLOSE */}
-          <button
+          <div
             onClick={onClose}
-            className="absolute top-5 right-5 text-4xl text-gray-400 hover:text-black transition"
+            className="absolute top-4 right-4 cursor-pointer text-4xl text-gray-500 hover:text-black transition"
           >
             <IoClose />
-          </button>
+          </div>
 
-          {/* CONTENT */}
-          <div className="px-8 md:px-14 py-16 min-h-full flex flex-col justify-center">
-            {/* HEADER */}
-            <div className="space-y-5">
-              <motion.span
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="text-sm tracking-[0.3em] uppercase text-[#00B489] font-medium"
-              >
-                Contact
-              </motion.span>
+          {/* HEADER */}
+          <div className="text-center space-y-3 mt-8">
+            <h2 className="text-3xl md:text-4xl font-light font-[josefin]">
+              Let's Collaborate
+            </h2>
 
-              <motion.h2
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1 }}
-                className="text-5xl md:text-6xl leading-none font-[josefin]"
-              >
-                Let’s Build <br /> Something Great
-              </motion.h2>
+            <p className="text-gray-500 text-sm md:text-base">
+              We'll get back to you within one business day
+            </p>
+          </div>
 
-              <motion.p
-                initial={{ opacity: 0, y: 10 }}
+          {/* SUCCESS */}
+          <AnimatePresence>
+            {sent && (
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2 }}
-                className="text-gray-500 text-base max-w-md leading-relaxed"
+                exit={{ opacity: 0 }}
+                className="bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded-lg text-sm text-center"
               >
-                Have an idea, freelance project, startup, or collaboration?
-                Fill out the form and I’ll get back to you within 24 hours.
-              </motion.p>
+                ✓ Message sent successfully. We'll contact you soon.
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          {/* FORM */}
+          <form ref={form} onSubmit={sendEmail} className="space-y-6">
+            {/* NAME */}
+            <div className="flex flex-col gap-2">
+              <label className="text-sm">Name</label>
+
+              <input
+                name="user_name"
+                required
+                type="text"
+                placeholder="John Doe"
+                className="border border-gray-300 focus:border-black focus:outline-none rounded-lg px-3 py-3 transition"
+              />
             </div>
 
-            {/* SUCCESS */}
-            <AnimatePresence>
-              {sent && (
-                <motion.div
-                  initial={{ opacity: 0, y: -15 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0 }}
-                  className="mt-8 bg-green-50 border border-green-200 text-green-700 px-5 py-4 rounded-2xl"
-                >
-                  ✓ Message sent successfully.
-                </motion.div>
-              )}
-            </AnimatePresence>
+            {/* EMAIL */}
+            <div className="flex flex-col gap-2">
+              <label className="text-sm">Email</label>
 
-            {/* FORM */}
-            <form
-              ref={form}
-              onSubmit={sendEmail}
-              className="mt-10 space-y-7"
+              <input
+                name="user_email"
+                required
+                type="email"
+                placeholder="john@example.com"
+                className="border border-gray-300 focus:border-black focus:outline-none rounded-lg px-3 py-3 transition"
+              />
+            </div>
+
+            {/* MESSAGE */}
+            <div className="flex flex-col gap-2">
+              <label className="text-sm">
+                Tell Us About Your Project
+              </label>
+
+              <textarea
+                name="message"
+                required
+                rows="5"
+                placeholder="Tell us about your project..."
+                className="border border-gray-300 focus:border-black focus:outline-none rounded-lg px-3 py-3 transition resize-none"
+              ></textarea>
+            </div>
+
+            {/* SUBMIT */}
+            <button
+              type="submit"
+              disabled={loading}
+              className="w-full bg-[#476086] text-white py-3 rounded-xl hover:bg-[#5e68a8] transition duration-300"
             >
-              {/* NAME */}
-              <div className="space-y-3">
-                <label className="text-sm uppercase tracking-wide text-gray-500">
-                  Full Name
-                </label>
+              {loading ? "Sending..." : "Submit"}
+            </button>
+          </form>
 
-                <input
-                  type="text"
-                  name="user_name"
-                  required
-                  placeholder="John Doe"
-                  className="w-full border-b border-gray-300 py-4 outline-none focus:border-black transition bg-transparent"
-                />
-              </div>
+          {/* DIVIDER */}
+          <div className="flex items-center gap-4">
+            <div className="h-px flex-1 bg-gray-300"></div>
 
-              {/* EMAIL */}
-              <div className="space-y-3">
-                <label className="text-sm uppercase tracking-wide text-gray-500">
-                  Email Address
-                </label>
+            <span className="text-sm text-gray-500">
+              Prefer to talk now?
+            </span>
 
-                <input
-                  type="email"
-                  name="user_email"
-                  required
-                  placeholder="john@example.com"
-                  className="w-full border-b border-gray-300 py-4 outline-none focus:border-black transition bg-transparent"
-                />
-              </div>
+            <div className="h-px flex-1 bg-gray-300"></div>
+          </div>
 
-              {/* MESSAGE */}
-              <div className="space-y-3">
-                <label className="text-sm uppercase tracking-wide text-gray-500">
-                  Project Details
-                </label>
-
-                <textarea
-                  name="message"
-                  rows="5"
-                  required
-                  placeholder="Tell me about your project..."
-                  className="w-full border-b border-gray-300 py-4 outline-none focus:border-black transition bg-transparent resize-none"
-                ></textarea>
-              </div>
-
-              {/* BUTTON */}
-              <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                type="submit"
-                disabled={loading}
-                className="group mt-6 w-full bg-black text-white py-4 rounded-2xl flex items-center justify-center gap-3 hover:bg-[#00B489] transition-all duration-300"
-              >
-                {loading ? "Sending..." : "Send Message"}
-
-                {!loading && (
-                  <FaArrowRight className="group-hover:translate-x-1 transition" />
-                )}
-              </motion.button>
-            </form>
-
-            {/* DIVIDER */}
-            <div className="flex items-center gap-4 my-10">
-              <div className="flex-1 h-px bg-gray-200"></div>
-
-              <span className="text-sm text-gray-400">
-                OR SCHEDULE A CALL
-              </span>
-
-              <div className="flex-1 h-px bg-gray-200"></div>
-            </div>
-
-            {/* BOOK CALL */}
+          {/* CALL BUTTON */}
+          <div className="text-center">
             <a
               href="https://calendar.app.google/qGVE3ewuUWmhy9cC7"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="w-full border border-black py-4 rounded-2xl hover:bg-black hover:text-white transition-all duration-300"
-              >
-                Book a Discovery Call
-              </motion.button>
+              <button className="border w-full border-black px-6 py-3 rounded-xl hover:bg-black hover:text-white transition duration-300">
+                Book a Call
+              </button>
             </a>
           </div>
         </motion.div>
