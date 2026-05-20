@@ -108,7 +108,6 @@ function Contact({ onClose }) {
                 name="user_name"
                 required
                 type="text"
-                placeholder="John Doe"
                 className="border border-gray-300 focus:border-black focus:outline-none rounded-lg px-3 py-3 transition"
               />
             </div>
@@ -121,7 +120,6 @@ function Contact({ onClose }) {
                 name="user_email"
                 required
                 type="email"
-                placeholder="john@example.com"
                 className="border border-gray-300 focus:border-black focus:outline-none rounded-lg px-3 py-3 transition"
               />
             </div>
